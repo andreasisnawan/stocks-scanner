@@ -7,8 +7,10 @@ import numpy as np
 import pandas as pd
 import requests
 import yfinance as yf
+from dotenv import load_dotenv
 
 warnings.filterwarnings('ignore')
+load_dotenv()
 
 # Ambil env dari GitHub Secrets
 TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
@@ -335,8 +337,15 @@ def main():
   print("4. Kombinasikan dengan analisis fundamental")
   print("5. Gunakan proper position sizing (maksimal 5% dari portfolio per saham)")
   print("6. Perhatikan kalender ekonomi dan berita perusahaan")
-  print("7. Best time frame untuk swing trading: daily dan 4H charts")
-
+  print("7. Best time frame untuk swing trading: daily dan 4H charts\n")
+  
+  # Clean up
+  if os.path.exists(filename):
+    try:
+      os.remove(filename)
+      print('CSV File sudah dihapus')
+    except OSError as err:
+      print('Error saat menghapus file: ', err)
 
 if __name__ == "__main__":
   main()
