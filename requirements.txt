@@ -1,0 +1,8 @@
+requests
+pandas
+yfinance
+ta
+numpy
+requests
+beautifulsoup4
+python-telegram-bot>=20.0

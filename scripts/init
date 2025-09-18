@@ -1,0 +1,14 @@
+#!/bin/bash
+
+rm -rf ./.tmp
+
+printf "............ checking for virtual environment\n"
+# pip3 install virtualenv
+# virtualenv -p python3 ./.tmp/venv
+# . ./.tmp/venv/bin/activate
+python3 -m venv ./.tmp/venv
+source ./.tmp/venv/bin/activate
+
+printf "............ installing python libraries\n"
+# pip3 install -r requirements.txt
+python3 -m pip install -r requirements.txt
