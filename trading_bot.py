@@ -126,14 +126,17 @@ class IndonesiaStockTradingBot:
 
     def calculate_tp_sl(self, buy_price, trend, atr, volatility_factor=1.5):
         """Menghitung take profit dan stop loss"""
+        # Untuk pasar Indonesia yang tidak support short selling retail,
+        # semua posisi dianggap long position
         if trend == 'bullish':
-            # Long position
+            # Long position - target naik
             stop_loss = buy_price - (atr * volatility_factor)  # SL di bawah ATR
             take_profit = buy_price + (atr * volatility_factor * 2)  # TP 2x ATR
         elif trend == 'bearish':
-            # Short position (walaupun jarang di Indonesia, tapi untuk lengkap)
-            stop_loss = buy_price + (atr * volatility_factor)
-            take_profit = buy_price - (atr * volatility_factor * 2)
+            # Bearish tapi tetap long position (beli di harga rendah, target bounce)
+            # Gunakan TP/SL lebih konservatif
+            stop_loss = buy_price - (atr * volatility_factor)  # SL di bawah
+            take_profit = buy_price + (atr * volatility_factor * 1.5)  # TP lebih konservatif
         else:
             # Neutral, gunakan fixed percentage
             stop_loss = buy_price * 0.95  # 5% SL
