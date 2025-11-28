@@ -29,7 +29,7 @@ class IndonesiaStockTradingBot:
             # Pertambangan & Energi (Mining & Energy)
             'ADRO.JK', 'PTBA.JK', 'ITMG.JK', 'BYAN.JK', 'BREN.JK', 'MBMA.JK',  # Adaro, Bukit Asam, Indo Tambang, Bayan Resources, Barito Renewables, Merdeka Battery
             # Infrastruktur (Infrastructure)
-            'JSMR.JK', 'WSKT.JK', 'WIKA.JK',  # Jasa Marga, Waskita, Wijaya Karya
+            'JSMR.JK', # 'WSKT.JK', 'WIKA.JK',  # Jasa Marga, Waskita, Wijaya Karya
             # Rokok (Tobacco)
             'GGRM.JK', 'HMSP.JK', 'WIIM.JK',  # Gudang Garam, HM Sampoerna, WIKA International
             # Semen (Cement)
@@ -40,6 +40,8 @@ class IndonesiaStockTradingBot:
             'MNCN.JK', 'SCMA.JK', 'EMTK.JK', 'COIN.JK', 'PANI.JK',  # MNCN, SCMA, Elang Mahkota, Indokripto, Pantai Indah Kapuk
             # Logam (Metals)
             'ANTM.JK', 'TINS.JK', 'MDKA.JK'   # Aneka Tambang, Timah, Merdeka Copper
+            # Personal preference
+            'CDIA.JK', 'BRMS.JK', 'BRPT.JK', 'PGAS.JK', 'CUAN.JK', 'BREN.JK', 'PTRO.JK', 'GZCO.JK'  # Chandra Asri, Baramulti, Barito Pacific, Perusahaan Gas Negara, Cuanza, Barito Renewables, Petrosea
         ]
 
     def get_stock_data(self, symbol, period='1y'):
