@@ -2,9 +2,8 @@ name: Trading Bot Analysis
 
 on:
   schedule:
-    # Morning run: 9:00 AM UTC+7 (02:00 UTC)
-    - cron: "0 2 * * 1-5" # Monday to Friday
-    # Evening run: 3:00 PM UTC+7 (08:00 UTC)
+    - cron: "0 0 * * 1-5" # Monday to Friday
+    - cron: "0 1 * * 1-5" # Monday to Friday
     - cron: "0 8 * * 1-5" # Monday to Friday
   workflow_dispatch: # Manual trigger
 
