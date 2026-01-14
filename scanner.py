@@ -259,11 +259,11 @@ class IndonesiaStockScreener:
     if not results:
       return "⚠️ Tidak ada saham yang lolos screening swing trading hari ini."
 
-    message = "📊 *Hasil Screening Top 5 Saham Swing Trading*\n\n"
+    message = "📊 <b>Hasil Screening Top 5 Saham Swing Trading</b>\n\n"
     for stock in results[:5]:  # Top 5 saja
       message += (
-        f"• `{stock['symbol']}` ({stock['company']}) | Harga: *Rp {stock['price']:,.0f}* | "
-        f"Net Score: *{stock['net_score']}* (Bullish: {stock['bullish_signals']}, Bearish: {stock['bearish_signals']})\n"
+        f"• <code>{stock['symbol']}</code> ({stock['company']}) | Harga: <b>Rp {stock['price']:,.0f}</b> | "
+        f"Net Score: <b>{stock['net_score']}</b> (Bullish: {stock['bullish_signals']}, Bearish: {stock['bearish_signals']})\n"
         f"   - RSI: {stock['rsi']:.1f}, MACD: {stock['macd']:.3f} (Signal: {stock['macd_signal']:.3f})\n"
         f"   - Stochastic K: {stock['stoch_k']:.1f}, D: {stock['stoch_d']:.1f}\n"
         f"   - MA20: Rp {stock['ma_20']:,.0f}" + (
@@ -309,9 +309,9 @@ def main():
   payload = {
     "chat_id": CHAT_ID,
     "text": message,
-    "parse_mode": "Markdown"
+    "parse_mode": "HTML"
   }
-
+  
   res = requests.post(url, data=payload)
   print("✔️ Terkirim ke Telegram!" if res.status_code == 200 else f"❌ Gagal: {res.text}")
 
